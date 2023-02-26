@@ -24,7 +24,7 @@ public class TestDependencyInjection {
      * */
     @Test
     void testWithDependencyInjection() {
-        Foo fooBean = applicationContext.getBean("foo_bean", Foo.class);
+        Foo fooBean = applicationContext.getBean("foo_bean_satu", Foo.class);
         Bar barBean = applicationContext.getBean("bar_bean", Bar.class);
 
         FooBar fooBarBean = applicationContext.getBean("foobar_bean", FooBar.class);
