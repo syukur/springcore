@@ -12,14 +12,14 @@ public class BeanConfiguration {
 
     @Primary
     @Bean(name = "foo")
-    Foo foo(){
+    public Foo foo(){
         Foo foo = new Foo();
         log.info("Bean Foo Was Created.");
         return foo;
     }
 
     @Bean(name = "foo_satu")
-    Foo foo1(){
+    public Foo foo1(){
         Foo foo = new Foo();
         log.info("Bean Foo1 Was Created.");
         return foo;

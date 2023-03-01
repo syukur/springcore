@@ -11,22 +11,22 @@ import org.springframework.context.annotation.Configuration;
 public class DITestConfiguration {
 
     @Bean(value = "foo_bean")
-    Foo foo(){
+    public Foo foo(){
         return new Foo();
     }
 
     @Bean(value = "foo_bean_satu")
-    Foo foo1(){
+    public Foo foo1(){
         return new Foo();
     }
 
     @Bean(value = "bar_bean")
-    Bar bar(){
+    public Bar bar(){
         return new Bar();
     }
 
     @Bean(value = "foobar_bean")
-    FooBar fooBar(@Qualifier("foo_bean_satu") Foo foo, Bar bar ){
+    public FooBar fooBar(@Qualifier("foo_bean_satu") Foo foo, Bar bar ){
         return new FooBar(foo, bar);
     }
 

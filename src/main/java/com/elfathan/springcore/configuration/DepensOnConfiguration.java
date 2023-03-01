@@ -15,13 +15,13 @@ public class DepensOnConfiguration {
     @Lazy
     @Bean(value = "foo")
     @DependsOn("bar")
-    Foo foo(){
+    public Foo foo(){
         log.info("Create New Foo");
         return new Foo();
     }
 
     @Bean(value = "bar")
-    Bar bar(){
+    public Bar bar(){
         log.info("Create New Bar");
         return new Bar();
     }
