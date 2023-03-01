@@ -4,7 +4,9 @@ import com.elfathan.springcore.data.cyclic.CyclicA;
 import com.elfathan.springcore.data.cyclic.CyclicB;
 import com.elfathan.springcore.data.cyclic.CyclicC;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
+@Configuration
 public class CyclicConfiguration {
 
     @Bean
