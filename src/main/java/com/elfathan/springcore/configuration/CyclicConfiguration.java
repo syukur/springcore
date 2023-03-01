@@ -1,4 +1,4 @@
-package com.elfathan.springcore;
+package com.elfathan.springcore.configuration;
 
 import com.elfathan.springcore.data.cyclic.CyclicA;
 import com.elfathan.springcore.data.cyclic.CyclicB;

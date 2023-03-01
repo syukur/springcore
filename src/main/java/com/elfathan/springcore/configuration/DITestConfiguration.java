@@ -1,4 +1,4 @@
-package com.elfathan.springcore;
+package com.elfathan.springcore.configuration;
 
 import com.elfathan.springcore.data.Bar;
 import com.elfathan.springcore.data.Foo;

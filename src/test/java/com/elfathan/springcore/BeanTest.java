@@ -1,5 +1,6 @@
 package com.elfathan.springcore;
 
+import com.elfathan.springcore.configuration.BeanConfiguration;
 import com.elfathan.springcore.data.Foo;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;

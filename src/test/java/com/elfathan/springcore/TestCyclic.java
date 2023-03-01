@@ -1,5 +1,6 @@
 package com.elfathan.springcore;
 
+import com.elfathan.springcore.configuration.CyclicConfiguration;
 import com.elfathan.springcore.data.cyclic.CyclicA;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
