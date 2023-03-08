@@ -1,6 +1,7 @@
 package com.elfathan.springcore;
 
 import com.elfathan.springcore.configuration.ScopeConfig;
+import com.elfathan.springcore.data.Bar;
 import com.elfathan.springcore.data.Foo;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -26,5 +27,20 @@ public class TestPrototypeScope {
         Assertions.assertNotSame(foo1, foo2);
         Assertions.assertNotSame(foo1, foo3);
         Assertions.assertNotSame(foo2, foo3);
+    }
+
+    @Test
+    void testDoubletonScope(){
+        Bar bar1 = applicationContext.getBean(Bar.class);
+        Bar bar2 = applicationContext.getBean(Bar.class);
+        Bar bar3 = applicationContext.getBean(Bar.class);
+        Bar bar4 = applicationContext.getBean(Bar.class);
+
+        Assertions.assertSame(bar1, bar3);
+        Assertions.assertSame(bar2, bar4);
+
+        Assertions.assertNotSame(bar1, bar2);
+        Assertions.assertNotSame(bar3, bar4);
+
     }
 }
