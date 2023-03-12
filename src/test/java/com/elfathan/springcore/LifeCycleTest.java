@@ -2,6 +2,8 @@ package com.elfathan.springcore;
 
 import com.elfathan.springcore.configuration.LifeCycleConfiguration;
 import com.elfathan.springcore.data.Connection;
+import com.elfathan.springcore.data.Server;
+import com.elfathan.springcore.data.Server1;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -25,5 +27,15 @@ public class LifeCycleTest {
     @Test
     public void testLifeCycle(){
         Connection connection = applicationContext.getBean(Connection.class);
+    }
+
+    @Test
+    void testAnotationLifeCycle() {
+        Server server = applicationContext.getBean(Server.class);
+    }
+
+    @Test
+    void testAnotationLifeCycl1() {
+        Server1 server = applicationContext.getBean(Server1.class);
     }
 }
