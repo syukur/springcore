@@ -2,8 +2,10 @@ package com.elfathan.springcore;
 
 import com.elfathan.springcore.configuration.ComponenConfiguration;
 import com.elfathan.springcore.repository.CategoryRepository;
+import com.elfathan.springcore.repository.CustomerRepository;
 import com.elfathan.springcore.repository.ProductRepository;
 import com.elfathan.springcore.service.CategoryService;
+import com.elfathan.springcore.service.CustomerService;
 import com.elfathan.springcore.service.ProductService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -44,5 +46,13 @@ public class ComponentTest {
         CategoryRepository categoryRepository = applicationContext.getBean(CategoryRepository.class);
 
         Assertions.assertSame(categoryService.getCategoryRepository(), categoryRepository);
+    }
+
+    @Test
+    void testDependencyInjectionFieldBase(){
+        CustomerService customerService = applicationContext.getBean(CustomerService.class);
+        CustomerRepository customerRepository = applicationContext.getBean(CustomerRepository.class);
+
+        Assertions.assertSame(customerService.getCustomerRepository(), customerRepository);
     }
 }
