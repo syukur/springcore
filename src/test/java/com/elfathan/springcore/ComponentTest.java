@@ -3,9 +3,11 @@ package com.elfathan.springcore;
 import com.elfathan.springcore.configuration.ComponenConfiguration;
 import com.elfathan.springcore.repository.CategoryRepository;
 import com.elfathan.springcore.repository.CustomerRepository;
+import com.elfathan.springcore.repository.PricelistRepository;
 import com.elfathan.springcore.repository.ProductRepository;
 import com.elfathan.springcore.service.CategoryService;
 import com.elfathan.springcore.service.CustomerService;
+import com.elfathan.springcore.service.PricelistService;
 import com.elfathan.springcore.service.ProductService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -54,5 +56,15 @@ public class ComponentTest {
         CustomerRepository customerRepository = applicationContext.getBean(CustomerRepository.class);
 
         Assertions.assertSame(customerService.getCustomerRepository(), customerRepository);
+    }
+
+    @Test
+    void testQualifier(){
+        PricelistService pricelistService = applicationContext.getBean(PricelistService.class);
+        PricelistRepository normalPricelistRepository = applicationContext.getBean("normalPricelistRepository", PricelistRepository.class);
+        PricelistRepository premiumPricelistRepository = applicationContext.getBean("premiumPricelistRepository", PricelistRepository.class);
+
+        Assertions.assertSame(pricelistService.getNormalPricelistRepository(), normalPricelistRepository);
+        Assertions.assertSame(pricelistService.getPremiumPricelistRepository(), premiumPricelistRepository);
     }
 }
