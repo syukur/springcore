@@ -3,17 +3,19 @@ package com.elfathan.springcore;
 import com.elfathan.springcore.configuration.OptionalConfiguration;
 import com.elfathan.springcore.data.Foo;
 import com.elfathan.springcore.data.FooBar;
+import com.elfathan.springcore.data.MultiFoo;
 import com.elfathan.springcore.data.computer.Computer;
 import com.elfathan.springcore.data.computer.SoundCard;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.annotation.Bean;
 
 import java.util.Optional;
 
+@Slf4j
 public class TestOptional {
 
     ConfigurableApplicationContext applicationContext;
@@ -49,5 +51,10 @@ public class TestOptional {
         Assertions.assertSame(fooBar.getFoo(), foo);
     }
 
-
+    @Test
+    void testObjectProvider() {
+        MultiFoo multiFoo = applicationContext.getBean(MultiFoo.class);
+        log.info( String.valueOf( multiFoo.getFoos().size() ) );
+        Assertions.assertSame(multiFoo.getFoos().size(), 3);
+    }
 }
