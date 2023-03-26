@@ -29,4 +29,5 @@ public class IdGeneratorBeanPostProcessor implements BeanPostProcessor, Ordered 
     public int getOrder() {
         return 1;
     }
+
 }
