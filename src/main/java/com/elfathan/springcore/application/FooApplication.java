@@ -1,5 +1,6 @@
 package com.elfathan.springcore.application;
 
+import com.elfathan.springcore.data.Bar;
 import com.elfathan.springcore.data.Foo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
@@ -10,8 +11,12 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 @Slf4j
 public class FooApplication {
+
+    @Bean Bar bar(){
+        return new Bar();
+    }
     @Bean
-    public Foo foo(){
+    public Foo foo(Bar bar){
         return new Foo();
     }
 
