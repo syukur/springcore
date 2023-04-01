@@ -3,6 +3,7 @@ package com.elfathan.springcore.application;
 import com.elfathan.springcore.data.Bar;
 import com.elfathan.springcore.data.Foo;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.Banner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -20,9 +21,22 @@ public class FooApplication {
         return new Foo();
     }
 
+//    public static void main(String[] args) {
+//        ConfigurableApplicationContext applicationContext = SpringApplication.run(FooApplication.class, args);
+//        Foo foo = applicationContext.getBean(Foo.class);
+//        log.info("foo:{}", foo);
+//    }
+
+    /**
+     * Customizing Spring Application
+     * */
     public static void main(String[] args) {
-        ConfigurableApplicationContext applicationContext = SpringApplication.run(Foo.class, args);
+        SpringApplication springApplication = new SpringApplication(FooApplication.class);
+        springApplication.setBannerMode(Banner.Mode.OFF);
+
+        ConfigurableApplicationContext applicationContext = springApplication.run(args);
         Foo foo = applicationContext.getBean(Foo.class);
         log.info("foo:{}", foo);
+
     }
 }
