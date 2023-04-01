@@ -2,12 +2,15 @@ package com.elfathan.springcore.application;
 
 import com.elfathan.springcore.data.Bar;
 import com.elfathan.springcore.data.Foo;
+import com.elfathan.springcore.listener.ApplicationStartingListener;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.Banner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
+
+import java.util.List;
 
 @SpringBootApplication
 @Slf4j
@@ -33,6 +36,12 @@ public class FooApplication {
     public static void main(String[] args) {
         SpringApplication springApplication = new SpringApplication(FooApplication.class);
         springApplication.setBannerMode(Banner.Mode.OFF);
+        springApplication.setListeners(List.of(
+                new ApplicationStartingListener()
+        ));
+//        springApplication.addListeners(
+//                new ApplicationStartingListener()
+//        );
 
         ConfigurableApplicationContext applicationContext = springApplication.run(args);
         Foo foo = applicationContext.getBean(Foo.class);
